@@ -1,0 +1,56 @@
+/* hide all tabs button */
+#alltabs-button {
+    display: none;
+}
+
+/* floating search panel */
+#urlbar[breakout-extend] {
+    --ActiveCaption: ActiveCaption;
+    --bg-col: var(--lwt-accent-color, var(--ActiveCaption, tomato));
+
+    #urlbar-input {
+        font-size: 23.5px !important;
+    }
+
+    #urlbar-input-container,
+    .urlbar-input-container {
+        height: 50px !important;
+    }
+
+    #urlbar-background {
+        border-radius: var(--bigger-rounding) !important;
+    }
+
+    #urlbar-input-container,
+    .urlbar-input-container {
+        & > :is(box, image) {
+            height: 28px !important;
+            margin-block: calc((50px - 28px) / 4) !important;
+        }
+    }
+
+    position: fixed !important;
+    z-index: 999999 !important;
+
+    bottom: auto !important;
+    top: 20vh !important;
+
+    left: 18vw !important;
+    right: 18vw !important;
+    width: 64vw !important;
+
+    &:before {
+        content: "";
+        position: fixed;
+        pointer-events: none;
+        border-radius: var(--rounding);
+
+        width: 100vw;
+        height: 100vh;
+
+        top: 0px;
+        left: 0px;
+
+        background-color: color-mix(in srgb, var(--bg-col) 80%, transparent);
+    }
+}
