@@ -34,11 +34,6 @@
     }
 
     /* Wallpaper */
-    .activity-stream {
-        --newtab-wallpaper-light: url("https://github.com/nhattruongNeoVim/wallpapers/raw/master/wallpapers/anime-night.jpg");
-        --newtab-wallpaper-dark: url("https://github.com/nhattruongNeoVim/wallpapers/raw/master/wallpapers/anime-night.jpg");
-    }
-
     :root[lwt-newtab-brighttext] body {
         background-image: url("https://github.com/nhattruongNeoVim/wallpapers/raw/master/wallpapers/anime-night.jpg") !important;
     }
