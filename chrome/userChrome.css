@@ -11,37 +11,25 @@
 }
 
 /* custom minimum, maximum, and close button */
-/* @-moz-document url-prefix("chrome:") { */
-/*     .titlebar-button { */
-/*         padding: 9px !important; */
-/*         margin-left: 16px !important; */
-/*         border-radius: var(--zen-border-radius) !important; */
-/*     } */
-/**/
-/*     .titlebar-close { */
-/*         margin-right: 10px !important; */
-/*     } */
-/* } */
-
-/* custom minimum, maximum, and close button similar MacOS */
 @-moz-document url-prefix("chrome:") {
     .titlebar-buttonbox {
         margin-right: 20px;
     }
 
     .titlebar-button {
-        padding: 0px !important;
+        padding: 4px !important;
         min-height: 13px !important;
         min-width: 13px !important;
         align-self: center;
         background-color: hsl(0, 0%, 20%) !important;
-        margin-left: 5px !important;
+        border-radius: var(--zen-border-radius) !important;
+        margin-left: 10px !important;
         border-radius: 50px;
         transition: all 100ms;
     }
 
     .titlebar-button:hover {
-        min-height: 20px !important;
+        min-height: 25px !important;
     }
 
     .titlebar-min:hover {
