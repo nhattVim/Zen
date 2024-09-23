@@ -11,15 +11,62 @@
 }
 
 /* custom minimum, maximum, and close button */
+/* @-moz-document url-prefix("chrome:") { */
+/*     .titlebar-button { */
+/*         padding: 9px !important; */
+/*         margin-left: 16px !important; */
+/*         border-radius: var(--zen-border-radius) !important; */
+/*     } */
+/**/
+/*     .titlebar-close { */
+/*         margin-right: 10px !important; */
+/*     } */
+/* } */
+
+/* custom minimum, maximum, and close button similar MacOS */
 @-moz-document url-prefix("chrome:") {
-    .titlebar-button {
-        padding: 9px !important;
-        margin-left: 16px !important;
-        border-radius: var(--zen-border-radius) !important;
+    .titlebar-buttonbox {
+        margin-right: 20px;
     }
 
-    .titlebar-close {
-        margin-right: 10px !important;
+    .titlebar-button {
+        padding: 0px !important;
+        min-height: 13px !important;
+        min-width: 13px !important;
+        align-self: center;
+        background-color: hsl(0, 0%, 20%) !important;
+        margin-left: 5px !important;
+        border-radius: 50px;
+        transition: all 100ms;
+    }
+
+    .titlebar-button:hover {
+        min-height: 20px !important;
+    }
+
+    .titlebar-min:hover {
+        background-color: hsl(130, 50%, 40%) !important;
+    }
+
+    .titlebar-max:hover,
+    .titlebar-restore:hover {
+        background-color: hsl(60, 50%, 50%) !important;
+    }
+
+    .titlebar-close:hover {
+        background-color: hsl(0, 50%, 50%) !important;
+    }
+
+    .titlebar-button > image {
+        visibility: collapse !important;
+    }
+}
+
+/* custom bottom-left statusbar when hovering over a URL */
+@-moz-document url-prefix("chrome:") {
+    #statuspanel-label {
+        border-top-right-radius: var(--zen-border-radius) !important;
+        background-color: #000000 !important;
     }
 }
 
