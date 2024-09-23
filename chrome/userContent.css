@@ -3,10 +3,6 @@
     /* accent color */
     :root {
         --shy-color: #3584e4;
-        --blur-radius: 10px;
-        --newtab-primary-action-background: var(--shy-color) !important;
-        --newtab-primary-action-background-pocket: var(--shy-color) !important;
-
         --tr-col: color-mix(
             in srgb,
             var(--newtab-background-color) 40%,
@@ -17,12 +13,6 @@
             var(--tr-col) 80%,
             var(--newtab-text-primary-color)
         );
-        --newtab-background-color-secondary: color-mix(
-            in srgb,
-            var(--newtab-background-color) 90%,
-            var(--newtab-text-primary-color)
-        ) !important;
-        --background-color-box: var(--tr-col) !important;
     }
 
     /* layout */
@@ -30,7 +20,7 @@
         margin-top: 8% !important;
         height: 50%;
         background-color: var(--tr-col);
-        border-radius: 20px;
+        border-radius: 10px;
     }
 
     /* Wallpaper */

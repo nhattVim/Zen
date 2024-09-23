@@ -1,56 +1,71 @@
-/* hide all tabs button */
-#alltabs-button {
-    display: none;
+/*global theme */
+@-moz-document url-prefix("chrome:") {
+    :root {
+        --zen-colors-primary: #8f77f2 !important;
+        --zen-colors-secondary: #393061 !important;
+        --zen-colors-tertiary: #13121c !important;
+        --zen-colors-border: #514480 !important;
+        --zen-primary-color: #8f77f2 !important;
+        --zen-dialog-background: #13121c !important;
+    }
 }
 
-/* floating search panel */
-#urlbar[breakout-extend] {
-    --ActiveCaption: ActiveCaption;
-    --bg-col: var(--lwt-accent-color, var(--ActiveCaption, tomato));
-
-    #urlbar-input {
-        font-size: 23.5px !important;
+/* custom minimum, maximum, and close button */
+@-moz-document url-prefix("chrome:") {
+    .titlebar-button {
+        padding: 9px !important;
+        margin-left: 16px !important;
+        border-radius: var(--zen-border-radius) !important;
     }
 
-    #urlbar-input-container,
-    .urlbar-input-container {
-        height: 50px !important;
+    .titlebar-close {
+        margin-right: 10px !important;
     }
+}
 
-    #urlbar-background {
-        border-radius: var(--bigger-rounding) !important;
-    }
-
-    #urlbar-input-container,
-    .urlbar-input-container {
-        & > :is(box, image) {
-            height: 28px !important;
-            margin-block: calc((50px - 28px) / 4) !important;
+/* floating search bar */
+@-moz-document url-prefix("chrome:") {
+    #urlbar:is([breakout][breakout-extend], [breakout][usertyping][focused]) {
+        #urlbar-input {
+            font-size: 16px !important;
         }
-    }
 
-    position: fixed !important;
-    z-index: 999999 !important;
+        z-index: 2;
+        position: fixed !important;
+        bottom: auto !important;
+        top: 20vh !important;
+        padding-left: 6px !important;
+        padding-right: 8px !important;
 
-    bottom: auto !important;
-    top: 20vh !important;
+        left: 18vw !important;
+        right: 18vw !important;
+        width: 64vw !important;
 
-    left: 18vw !important;
-    right: 18vw !important;
-    width: 64vw !important;
+        &:after {
+            content: "";
+            position: fixed;
+            pointer-events: none;
 
-    &:before {
-        content: "";
-        position: fixed;
-        pointer-events: none;
-        border-radius: var(--rounding);
+            width: 100vw;
+            height: 100vh;
 
-        width: 100vw;
-        height: 100vh;
+            top: 0px;
+            left: 0px;
 
-        top: 0px;
-        left: 0px;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
 
-        background-color: color-mix(in srgb, var(--bg-col) 80%, transparent);
+            z-index: -1;
+        }
+
+        #identity-box {
+            margin: auto 0;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .urlbar-go-button {
+            margin: auto 0;
+        }
     }
 }
