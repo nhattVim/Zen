@@ -15,6 +15,7 @@
     /* accent color */
     :root {
         --shy-color: #3584e4;
+        --blur-radius: 10px;
         --tr-col: color-mix(
             in srgb,
             var(--newtab-background-color) 40%,
@@ -37,11 +38,11 @@
 
     /* Wallpaper */
     :root[lwt-newtab-brighttext] body {
-        background-image: url("https://github.com/nhattruongNeoVim/wallpapers/raw/master/wallpapers/anime-night.jpg") !important;
+        background-image: url("dark.jpg") !important;
     }
 
     :root:not([lwt-newtab-brighttext]) body {
-        background-image: url("https://github.com/nhattruongNeoVim/wallpapers/raw/master/wallpapers/anime-night.jpg") !important;
+        background-image: url("light.jpg") !important;
     }
 
     /* Search engine */
@@ -61,7 +62,6 @@
     .top-site-button,
     .customize-menu {
         background-color: var(--tr-col) !important;
-        backdrop-filter: blur(10px);
         backdrop-filter: blur(var(--blur-radius));
     }
 

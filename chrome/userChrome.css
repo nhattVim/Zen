@@ -1,6 +1,6 @@
-/*global theme */
+/* global theme */
 @-moz-document url-prefix("chrome:") {
-    :root {
+    :root[lwt-newtab-brighttext] {
         --zen-colors-primary: #8f77f2 !important;
         --zen-colors-secondary: #393061 !important;
         --zen-colors-tertiary: #13121c !important;
@@ -12,6 +12,14 @@
 
 /* custom minimum, maximum, and close button */
 @-moz-document url-prefix("chrome:") {
+    :root[lwt-newtab-brighttext] {
+        --titlebar-bg-color: #333333 !important;
+    }
+
+    :root:not([lwt-newtab-brighttext]) {
+        --titlebar-bg-color: #cccccc !important;
+    }
+
     .titlebar-buttonbox {
         margin-right: 20px;
     }
@@ -21,11 +29,15 @@
         min-height: 13px !important;
         min-width: 13px !important;
         align-self: center;
-        background-color: hsl(0, 0%, 20%) !important;
         border-radius: var(--zen-border-radius) !important;
+        background-color: var(--titlebar-bg-color) !important;
         margin-left: 10px !important;
         border-radius: 50px;
         transition: all 100ms;
+    }
+
+    .titlebar-button > image {
+        visibility: collapse !important;
     }
 
     .titlebar-button:hover {
@@ -33,20 +45,23 @@
     }
 
     .titlebar-min:hover {
-        background-color: hsl(130, 50%, 40%) !important;
+        background-color: #15c782 !important;
     }
 
     .titlebar-max:hover,
     .titlebar-restore:hover {
-        background-color: hsl(60, 50%, 50%) !important;
+        background-color: #fbbf24 !important;
     }
 
     .titlebar-close:hover {
-        background-color: hsl(0, 50%, 50%) !important;
+        background-color: #fc1a70 !important;
     }
+}
 
-    .titlebar-button > image {
-        visibility: collapse !important;
+/* no sidebar scrollbar */
+@-moz-document url-prefix("chrome:") {
+    .scrollbox-clip > scrollbox:nth-child(1) {
+        scrollbar-width: none !important;
     }
 }
 
@@ -101,6 +116,86 @@
 
         .urlbar-go-button {
             margin: auto 0;
+        }
+    }
+}
+
+/* find bar Ctrl + f */
+@-moz-document url-prefix("chrome:") {
+    findbar {
+        --findbar-pad: 10px;
+        --fndbr-btn-wdt: 30px;
+        --findbar-wdt: 60vw;
+
+        position: fixed !important;
+        z-index: 5 !important;
+
+        bottom: 1rem !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+
+        padding-top: 40px !important;
+        height: 80px !important;
+        width: var(--findbar-wdt);
+
+        /* corners, shadow */
+        border: 1px solid var(--arrowpanel-background) !important;
+        outline: 2px solid #00000020 !important;
+        border-radius: 8px !important;
+
+        /* some design */
+        background: transparent !important;
+        transition: all 0.25s ease-out !important;
+
+        & > * {
+            opacity: 1;
+        }
+
+        /* styles for input textbox */
+        .findbar-textbox {
+            position: absolute;
+            top: var(--findbar-pad);
+            left: var(--findbar-pad);
+            width: calc(
+                var(--findbar-wdt) - var(--findbar-pad) * 2.5 -
+                    var(--fndbr-btn-wdt) * 3
+            ) !important;
+            height: 22px !important;
+        }
+
+        /* put buttons to right place */
+        .findbar-closebutton,
+        .findbar-find-next,
+        .findbar-find-previous {
+            position: absolute;
+            top: var(--findbar-pad);
+            margin-inline-start: 0px !important;
+            margin-inline-end: 0px !important;
+        }
+
+        .findbar-closebutton {
+            right: var(--findbar-pad);
+        }
+
+        .findbar-find-next {
+            right: calc(var(--fndbr-btn-wdt) + var(--findbar-pad) / 2);
+        }
+
+        .findbar-find-previous {
+            right: calc(var(--fndbr-btn-wdt) * 2 + var(--findbar-pad) / 2);
+        }
+
+        /* rounded buttons */
+        .findbar-textbox,
+        .findbar-closebutton,
+        .findbar-find-next,
+        .findbar-find-previous {
+            border-radius: 4px !important;
+        }
+
+        /* hide find status */
+        .findbar-find-status {
+            display: none;
         }
     }
 }
