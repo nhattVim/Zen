@@ -58,9 +58,10 @@
     }
 }
 
-/* title bar border on compact mode */
+/* sidebar */
 @-moz-document url-prefix("chrome:") {
     @media (-moz-bool-pref: "zen.view.compact") {
+        /* sidebar border on compact mode */
         :root:not([customizing]):not([inDOMFullscreen="true"]) {
             @media (-moz-bool-pref: "zen.view.compact.hide-tabbar") {
                 & #titlebar {
@@ -68,11 +69,16 @@
                 }
             }
         }
-    }
-}
 
-/* remove scrollbar from sidebar */
-@-moz-document url-prefix("chrome:") {
+        /* reduce sidebar gap in compact mode */
+        #navigator-toolbox[zen-expanded="true"] {
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+            padding-left: 20px !important;
+        }
+    }
+
+    /* remove scrollbar from sidebar */
     scrollbox:nth-child(5) {
         scrollbar-width: none !important;
     }
