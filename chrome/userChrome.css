@@ -71,6 +71,13 @@
     }
 }
 
+/* remove scrollbar from sidebar */
+@-moz-document url-prefix("chrome:") {
+    scrollbox:nth-child(5) {
+        scrollbar-width: none !important;
+    }
+}
+
 /* custom bottom-left statusbar when hovering over a URL */
 @-moz-document url-prefix("chrome:") {
     #statuspanel-label {
