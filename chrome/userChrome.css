@@ -58,10 +58,16 @@
     }
 }
 
-/* no sidebar scrollbar */
+/* title bar border on compact mode */
 @-moz-document url-prefix("chrome:") {
-    .scrollbox-clip > scrollbox:nth-child(1) {
-        scrollbar-width: none !important;
+    @media (-moz-bool-pref: "zen.view.compact") {
+        :root:not([customizing]):not([inDOMFullscreen="true"]) {
+            @media (-moz-bool-pref: "zen.view.compact.hide-tabbar") {
+                & #titlebar {
+                    border: 1px solid var(--zen-colors-secondary) !important;
+                }
+            }
+        }
     }
 }
 
@@ -125,7 +131,7 @@
     findbar {
         --findbar-pad: 10px;
         --fndbr-btn-wdt: 30px;
-        --findbar-wdt: 60vw;
+        --findbar-wdt: 50vw;
 
         position: fixed !important;
         z-index: 5 !important;
@@ -140,16 +146,13 @@
 
         /* corners, shadow */
         border: 1px solid var(--arrowpanel-background) !important;
-        outline: 2px solid #00000020 !important;
-        border-radius: 8px !important;
+        outline: 1px solid var(--zen-colors-secondary) !important;
+        border-radius: var(--zen-border-radius);
 
         /* some design */
-        background: transparent !important;
+        background: var(--zen-colors-tertiary) !important;
+        /* background: transparent !important; */
         transition: all 0.25s ease-out !important;
-
-        & > * {
-            opacity: 1;
-        }
 
         /* styles for input textbox */
         .findbar-textbox {
@@ -161,6 +164,7 @@
                     var(--fndbr-btn-wdt) * 3
             ) !important;
             height: 22px !important;
+            border: 1px solid var(--zen-colors-border) !important;
         }
 
         /* put buttons to right place */
