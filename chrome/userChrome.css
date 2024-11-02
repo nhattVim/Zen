@@ -84,6 +84,21 @@
     }
 }
 
+/* navigation buttons */
+@-moz-document url-prefix("chrome:") {
+    #back-button {
+        list-style-image: url("chrome://browser/skin/back.svg") !important;
+    }
+
+    #forward-button {
+        list-style-image: url("chrome://browser/skin/forward.svg") !important;
+    }
+
+    #reload-button {
+        list-style-image: url("chrome://global/skin/icons/reload.svg") !important;
+    }
+}
+
 /* custom bottom-left statusbar when hovering over a URL */
 @-moz-document url-prefix("chrome:") {
     #statuspanel-label {
@@ -94,6 +109,11 @@
 
 /* floating search bar */
 @-moz-document url-prefix("chrome:") {
+    #urlbar {
+        --toolbarbutton-border-radius: 8px !important;
+        border: 1px solid var(--zen-colors-secondary) !important;
+    }
+
     #urlbar:is([breakout][breakout-extend], [breakout][usertyping][focused]) {
         #urlbar-input {
             font-size: 16px !important;
