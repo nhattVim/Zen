@@ -240,6 +240,6 @@
 /* hide sidebar buttons (fixed for ver 1.0.1-a.18) */
 @-moz-document url("about:privatebrowsing") {
     .zen-sidepanel-button {
-        display: none;
+        display: none !important;
     }
 }
