@@ -70,10 +70,13 @@
             }
         }
 
-        /* reduce sidebar gap in compact mode */
-        #navigator-toolbox[zen-expanded="true"] {
+        /* reduce sidebar gap */
+        #navigator-toolbox {
             padding-top: 10px !important;
             padding-bottom: 10px !important;
+        }
+
+        #navigator-toolbox[zen-expanded="true"] {
             padding-left: 20px !important;
         }
     }
@@ -235,6 +238,16 @@
             display: none;
         }
     }
+
+    /* fix when findbar hidden */
+    findbar[hidden] {
+        margin-bottom: unset !important;
+        transition-delay: unset !important;
+        visibility: visible !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        bottom: 0px;
+    }
 }
 
 /* (fixed for ver 1.0.1-a.18) */
@@ -245,5 +258,9 @@
 
     #zen-profile-button-icon {
         border: 1px solid var(--zen-colors-tertiary) !important;
+    }
+
+    .browserContainer {
+        border: 1px solid var(--zen-colors-secondary) !important;
     }
 }
