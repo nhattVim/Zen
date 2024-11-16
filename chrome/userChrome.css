@@ -252,10 +252,6 @@
 
 /* (fixed for ver 1.0.1-a.18) */
 @-moz-document url-prefix("chrome:") {
-    #zen-sidepanel-button {
-        display: none !important;
-    }
-
     #zen-profile-button-icon {
         border: 1px solid var(--zen-colors-tertiary) !important;
     }
