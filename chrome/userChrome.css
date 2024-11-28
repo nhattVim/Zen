@@ -40,6 +40,14 @@
         visibility: collapse !important;
     }
 
+    .titlebar-buttonbox-container {
+        & .titlebar-buttonbox {
+            & .titlebar-button {
+                height: 40% !important;
+            }
+        }
+    }
+
     .titlebar-button:hover {
         min-height: 25px !important;
     }
@@ -72,12 +80,38 @@
 
         /* reduce sidebar gap */
         #navigator-toolbox {
-            padding-top: 10px !important;
-            padding-bottom: 10px !important;
+            margin-top: calc(var(--zen-toolbar-height) + 10px) !important;
+            margin-bottom: 10px !important;
         }
 
-        #navigator-toolbox[zen-expanded="true"] {
+        #navigator-toolbox {
             padding-left: 20px !important;
+        }
+
+        #navigator-toolbox[zen-right-side="true"] {
+            padding-right: 20px !important;
+            padding-left: 0px !important;
+        }
+
+        /* align workspace indicator */
+        #zen-current-workspace-indicator {
+            display: flex;
+            justify-content: center;
+        }
+
+        #zen-current-workspace-indicator {
+            &
+                #zen-current-workspace-indicator-icon:not([hidden])
+                + #zen-current-workspace-indicator-name {
+                margin-left: 0px !important;
+            }
+        }
+
+        /* reduce sidebar top */
+        #zen-sidebar-top-buttons {
+            min-height: 10px !important;
+            height: 0px !important;
+            max-height: 0px !important;
         }
     }
 
@@ -172,8 +206,8 @@
         position: fixed !important;
         z-index: 5 !important;
 
-        bottom: 2rem !important;
-        left: 50% !important;
+        bottom: 20px;
+        left: 50%;
         transform: translateX(-50%) !important;
 
         padding-top: 40px !important;
@@ -187,7 +221,6 @@
 
         /* some design */
         background: var(--zen-colors-tertiary) !important;
-        /* background: transparent !important; */
         transition: all 0.25s ease-out !important;
 
         /* styles for input textbox */
@@ -239,7 +272,7 @@
         }
     }
 
-    /* fix when findbar hidden */
+    /* fix when findbar is hidden */
     findbar[hidden] {
         margin-bottom: unset !important;
         transition-delay: unset !important;
@@ -250,7 +283,7 @@
     }
 }
 
-/* (fixed for ver 1.0.1-a.18) */
+/* utils */
 @-moz-document url-prefix("chrome:") {
     #zen-profile-button-icon {
         border: 1px solid var(--zen-colors-tertiary) !important;
