@@ -273,4 +273,12 @@
     .browserContainer {
         border: 1px solid var(--zen-colors-secondary) !important;
     }
+
+    #translations-button {
+        display: none;
+    }
+
+    #reader-mode-button {
+        display: none;
+    }
 }
