@@ -1,14 +1,14 @@
 /* global theme */
-@-moz-document url-prefix("chrome:") {
-    :root[lwt-newtab-brighttext] {
-        --zen-colors-primary: #8f77f2 !important;
-        --zen-colors-secondary: #393061 !important;
-        --zen-colors-tertiary: #13121c !important;
-        --zen-colors-border: #514480 !important;
-        --zen-primary-color: #8f77f2 !important;
-        --zen-dialog-background: #13121c !important;
-    }
-}
+/* @-moz-document url-prefix("chrome:") { */
+/*     :root[lwt-newtab-brighttext] { */
+/*         --zen-colors-primary: #8f77f2 !important; */
+/*         --zen-colors-secondary: #393061 !important; */
+/*         --zen-colors-tertiary: #13121c !important; */
+/*         --zen-colors-border: #514480 !important; */
+/*         --zen-primary-color: #8f77f2 !important; */
+/*         --zen-dialog-background: #13121c !important; */
+/*     } */
+/* } */
 
 /* custom minimum, maximum, and close button */
 @-moz-document url-prefix("chrome:") {
@@ -64,7 +64,7 @@
         :root:not([customizing]):not([inDOMFullscreen="true"]) {
             @media (-moz-bool-pref: "zen.view.compact.hide-tabbar") {
                 & #titlebar {
-                    border: 1px solid var(--zen-colors-secondary) !important;
+                    outline: 1px solid var(--zen-colors-secondary) !important;
                 }
             }
         }
