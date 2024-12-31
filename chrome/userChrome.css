@@ -65,6 +65,7 @@
             @media (-moz-bool-pref: "zen.view.compact.hide-tabbar") {
                 & #titlebar {
                     outline: 1px solid var(--zen-colors-secondary) !important;
+                    background: rgba(19, 18, 28, 0.9) !important;
                 }
             }
         }
@@ -250,7 +251,7 @@
         border-radius: var(--zen-border-radius);
 
         /* some design */
-        background: var(--zen-colors-tertiary) !important;
+        background: rgba(19, 18, 28, 0.8) !important;
         transition: all 0.25s ease-out !important;
 
         /* styles for input textbox */
