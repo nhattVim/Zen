@@ -59,30 +59,60 @@
 
 /* sidebar */
 @-moz-document url-prefix("chrome:") {
-    @media (-moz-bool-pref: "zen.view.compact") {
-        /* sidebar border on compact mode */
-        :root:not([customizing]):not([inDOMFullscreen="true"]) {
-            @media (-moz-bool-pref: "zen.view.compact.hide-tabbar") {
-                & #titlebar {
-                    outline: 1px solid var(--zen-colors-secondary) !important;
-                    background: var(--zen-colors-tertiary) !important;
+    :root[zen-compact-mode="true"]:not([customizing]):not(
+            [inDOMFullscreen="true"]
+        ) {
+        @media (-moz-bool-pref: "zen.view.compact.hide-tabbar") {
+            &:not([zen-single-toolbar="true"]) {
+                @media not (-moz-bool-pref: "zen.view.compact.hide-toolbar") {
+                    /* sidebar border on compact mode */
+                    #titlebar {
+                        outline: 1px solid var(--zen-colors-secondary) !important;
+                        background: var(--zen-colors-tertiary) !important;
+                    }
+
+                    /* reduce sidebar gap */
+                    #navigator-toolbox {
+                        margin-top: calc(
+                            10px + var(--zen-toolbar-height)
+                        ) !important;
+                        margin-bottom: 10px !important;
+                    }
+
+                    #navigator-toolbox[zen-sidebar-expanded="true"] {
+                        padding-left: 20px !important;
+                    }
+
+                    #navigator-toolbox[zen-sidebar-expanded="true"][zen-right-side="true"] {
+                        padding-right: 20px !important;
+                        padding-left: 0px !important;
+                    }
                 }
             }
         }
 
-        /* reduce sidebar gap */
-        #navigator-toolbox {
-            margin-top: calc(10px + var(--zen-toolbar-height)) !important;
-            margin-bottom: 10px !important;
-        }
+        @media (-moz-bool-pref: "zen.view.compact.hide-toolbar") or (-moz-bool-pref: "zen.view.use-single-toolbar") {
+            @media (-moz-bool-pref: "zen.view.compact.hide-tabbar") {
+                #titlebar {
+                    outline: 1px solid var(--zen-colors-secondary) !important;
+                    background: var(--zen-colors-tertiary) !important;
+                }
 
-        #navigator-toolbox[zen-sidebar-expanded="true"] {
-            padding-left: 20px !important;
-        }
+                /* reduce sidebar gap */
+                #navigator-toolbox {
+                    margin-top: 10px !important;
+                    margin-bottom: 10px !important;
+                }
 
-        #navigator-toolbox[zen-sidebar-expanded="true"][zen-right-side="true"] {
-            padding-right: 20px !important;
-            padding-left: 0px !important;
+                #navigator-toolbox[zen-sidebar-expanded="true"] {
+                    padding-left: 20px !important;
+                }
+
+                #navigator-toolbox[zen-sidebar-expanded="true"][zen-right-side="true"] {
+                    padding-right: 20px !important;
+                    padding-left: 0px !important;
+                }
+            }
         }
 
         /* align workspace indicator */
